@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  height:132px;
+  padding-top: 11px;
+}
+
+
+.brandSection{
+display: flex;
+justify-content: space-between;
+margin: 0 71px 0 71.9px;
+height:66px;
+}
+
+.loginSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+}
+
+.btn {
+  background-color: #F4F6FA;
+  color: #3B3B3B;
+  border: none;
+  border-radius: 19px;
+  height: 37px;
+  width: 237px;
+  font-size: 15px;
+  line-height: 23px;
+  padding: 8px 25px;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  gap: 23px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.searchSection{
+  background-color: var(--main-color);
+  height:66px;
+}
