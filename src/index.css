@@ -3,7 +3,12 @@
 :root{
   --main-color: #772CE8;
   --light-blue: #C7F3FD;
+<<<<<<< HEAD
   --footer-link: #3B3B3B;
+=======
+  --information: rgba(50, 209, 247,0.63);  
+  
+>>>>>>> feature/information
 }
 
 
