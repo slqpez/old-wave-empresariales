@@ -12,6 +12,7 @@
     font-size: 20px;
     font-family: Poppins; 
     font-weight: 600;
+    cursor: default;
 }
 
 .brandSection h2 span{
@@ -54,6 +55,7 @@
 .social_network{
     margin-top: 15px;
 }
+
 
 .footer__flex_item:last-child img{
     margin-top: 10px;
