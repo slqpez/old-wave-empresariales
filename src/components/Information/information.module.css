@@ -1,0 +1,22 @@
+.information{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--information);
+    padding: 5.21vh 0;
+    height: 123px;
+}
+
+.information div{
+    display: flex;
+    height: max-content;
+}
+
+
+.information p{
+    display: block;
+    margin-left: 1.46vw;
+    font-size: 16px;
+    color: var(--main-color);
+    font-weight: 400;
+}
