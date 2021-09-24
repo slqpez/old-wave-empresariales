@@ -8,21 +8,33 @@ import Envios from "../../assets/icons/icon-envios-todo-elpais.svg";
 function Information() {
   return (
     <section className={informationStyles.information}>
-      <div>
-        <img src={Compras} alt="Compras Seguras" />
-        <p>Compras <br/> Seguras</p>
+      <div className={informationStyles.responsive_section}>
+        <div className={informationStyles.responsive_section_img}>
+          <img src={Compras} alt="Compras Seguras" />
+          <p>
+            Compras <br /> Seguras
+          </p>
+        </div>
+        <div className={informationStyles.responsive_section_img}>
+          <img src={Pagos} alt="Multiples Medios de Pago" />
+          <p>
+            Multiples medios <br /> de Pago
+          </p>
+        </div>
       </div>
-      <div>
-        <img src={Pagos} alt="Multiples Medios de Pago" />
-        <p>Multiples medios <br /> de Pago</p>
-      </div>
-      <div>
-        <img src={Calidad} alt="Calidad Garantizada" />
-        <p>Calidad <br /> Garantizada</p>
-      </div>
-      <div>
-        <img src={Envios} alt="Envíos todo el pais" />
-        <p>Envíos a <br /> todo el pais</p>
+      <div className={informationStyles.responsive_section}>
+        <div className={informationStyles.responsive_section_img}>
+          <img src={Calidad} alt="Calidad Garantizada" />
+          <p>
+            Calidad <br /> Garantizada
+          </p>
+        </div>
+        <div className={informationStyles.responsive_section_img}>
+          <img src={Envios} alt="Envíos todo el pais" />
+          <p>
+            Envíos a <br /> todo el pais
+          </p>
+        </div>
       </div>
     </section>
   );
