@@ -36,6 +36,7 @@ height:66px;
 .icons {
   display: flex;
   gap: 23px;
+  position: relative;
 }
 
 .icon {
