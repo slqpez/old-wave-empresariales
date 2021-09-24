@@ -1,11 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import logo from "../../assets/logos/logo-oldwave-header.svg";
 import loginIcon from "../../assets/icons/login-icon.svg";
 import cartIcon from "../../assets/icons/carrito-icon.svg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import headerStyles from "./header.module.css";
+import {useHistory} from "react-router-dom"
+import Carlist from "../CartList/Carlist";
+
+const customId = "custom-id-yes";
 
 function Header() {
+
+  const history = useHistory()
+
+  const [inputValue, setInputValue] = useState("")
+
+  const handleInput = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!inputValue) {
+      toast.info("No ingresaste valor de búsqueda.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        toastId: customId,
+      });
+    } else {
+      history.push(`/products/${inputValue}-from-0`);
+    }
+  };
   return (
     <header className={headerStyles.header}>
       <section className={headerStyles.brandSection}>
@@ -23,12 +55,14 @@ function Header() {
               className={headerStyles.icon}
               alt="Shopping cart"
             />
+            <Carlist></Carlist>
           </div>
         </nav>
       </section>
       <section className={headerStyles.searchSection}>
-        <SearchForm></SearchForm>
+        <SearchForm handleSubmit={handleSubmit} handleInput={handleInput}></SearchForm>
       </section>
+      <ToastContainer />
     </header>
   );
 }

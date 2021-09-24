@@ -1,0 +1,21 @@
+.filterContainer {
+  width: 300px;
+  padding:2em 0em;
+}
+
+.filterContainer h4 {
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid rgb(214, 211, 211);
+  padding-bottom: .5em;
+}
+
+.listFilter label {
+  margin-left: .8em;
+}
+
+.listFilter {
+  margin: 1em 0em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
