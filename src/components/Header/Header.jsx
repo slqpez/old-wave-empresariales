@@ -16,10 +16,15 @@ function Header() {
   const history = useHistory()
 
   const [inputValue, setInputValue] = useState("")
+  const [showCart, setShowCart] = useState(false)
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
+
+  const handleShowCart=()=>{
+    setShowCart(!showCart);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,8 +59,9 @@ function Header() {
               src={cartIcon}
               className={headerStyles.icon}
               alt="Shopping cart"
+              onClick={handleShowCart}
             />
-            <Carlist></Carlist>
+            {showCart?<Carlist></Carlist>:null}
           </div>
         </nav>
       </section>

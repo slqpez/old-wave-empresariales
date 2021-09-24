@@ -5,7 +5,9 @@ import cartListStyle  from "./cartList.module.css"
 function Carlist() {
   return (
     <div className={cartListStyle.carlist}>
-      <ProductsCard></ProductsCard>
+      <button className={cartListStyle.emptyCartBtn}>Vaciar carrito</button>
+      <ProductsCard cart={true}></ProductsCard>
+      <ProductsCard cart={true}></ProductsCard>
     </div>
   )
 }
