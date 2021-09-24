@@ -1,1 +1,39 @@
-.container {display:flex ;}
+.title{
+    text-align: center;
+    margin-top: 30px ;
+    margin-bottom: 58px;
+    color: var(--main-color);
+}
+
+
+.container {
+    display: flex;
+    margin-top: 2.5vw; 
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5.21vh 0;
+    height: 123px;
+}
+
+.imgs{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 120px;
+}
+
+.imgs img{
+    display: block;
+    height: 56px;
+    width: 72px;
+}
+
+.container p{
+    display:block;
+    text-align: center;
+    margin-top: 15px; 
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.56;
+    height: 60px;
+}
