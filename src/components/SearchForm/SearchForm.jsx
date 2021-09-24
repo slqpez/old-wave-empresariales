@@ -1,11 +1,11 @@
 import React from "react";
 import searchFormStyles from "./searchForm.module.css";
 
-function SearchForm() {
+function SearchForm({handleSubmit, handleInput}) {
   return (
-    <form action="POST" className={searchFormStyles.form}>
+    <form onSubmit={handleSubmit} className={searchFormStyles.form}>
       <div className={searchFormStyles.inputSection}>
-        <input type="text" className={searchFormStyles.inputSearch} placeholder="Estoy buscando..." />
+        <input type="text" className={searchFormStyles.inputSearch} placeholder="Estoy buscando..."  onChange={handleInput}/>
         <button type="button" className={searchFormStyles.btnCategories}>
           Todas las categorías
         </button>
