@@ -12,6 +12,7 @@ function ProductsCard() {
         <div className={productsCardStyles.Price_Container}>
           <s>$1'500.000</s>
           <p>$1'000.000</p>
+         {/*  <p>$500.000</p> */}
         </div>
         <button className={productsCardStyles.ProductCard_btn}>Agregar al carrito</button>
       </div>
