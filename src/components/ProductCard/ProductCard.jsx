@@ -1,5 +1,5 @@
 import React from "react";
-import productsCardStyles from "./productsCard.module.css";
+import productsCardStyles from "./productCard.module.css";
 import Prueba from "../../assets/desktop/producto1@2x.png";
 
 function ProductsCard() {
