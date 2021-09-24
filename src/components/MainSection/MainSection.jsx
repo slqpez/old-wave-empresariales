@@ -1,6 +1,5 @@
 import React from 'react'
 import mainStyles from "./mainSection.module.css"
-import IconsSlider from "../IconsSlider/IconsSlider"
 
 function MainSection() {
   return (
