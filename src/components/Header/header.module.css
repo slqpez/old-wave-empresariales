@@ -57,7 +57,7 @@
     z-index: 3;
     background-color: white;
     width: 90vw;
-    padding:2em;
+    padding:5em;
     height: calc(100vh + 20px);
     top: -20px;
   }
