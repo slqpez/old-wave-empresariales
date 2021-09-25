@@ -1,0 +1,37 @@
+.btnBurguer {
+  width: 40px;
+  height: 5px;
+  background-color: #772CE8;
+  position: relative;
+  cursor: pointer;
+  margin: 0 1em;
+}
+
+.btnBurguer:after{
+  content: " ";
+  width: 40px;
+  display:block;
+  height: 5px;
+  background-color: #772CE8;
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+
+}
+
+.btnBurguer:before{
+  content: " ";
+  width: 40px;
+  display:block;
+  height: 5px;
+  background-color: #772CE8;
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+.btnBurguer{
+  display: none;
+}
+}
