@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import image from "../../assets/desktop/producto1@2x.png";
 import productDetailStyle from "./productDetail.module.css";
 import { Link, useParams } from "react-router-dom";
 import { getProductByID } from "../../services/products";

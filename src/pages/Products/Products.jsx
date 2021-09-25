@@ -4,7 +4,6 @@ import ProductsList from "../../components/ProductsList/ProductsList";
 import FilterAside from "../../components/FilterAside/FilterAside";
 import productsStyles from "./products.module.css";
 import useProducts from "../../hooks/useProducts";
-import {getProductsFlask} from "../../services/products"
 
 function Products() {
   const { search } = useParams();
@@ -12,14 +11,6 @@ function Products() {
   const [flaskProducts,setFlaskProducts]= useState([])
 
   const { products, loading, error } = useProducts(search);
-
-
- /*  useEffect(()=>{
-    getProductsFlask(search)
-    .then(data=>console.log(data))
-  },[]) */
-
-//  const arrayProducts = products.concat(flaskProducts)
 
   return (
     <div className={productsStyles.container}>
