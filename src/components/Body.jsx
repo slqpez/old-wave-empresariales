@@ -10,7 +10,7 @@ function Body() {
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route  exact path="/products/:search/" component={Products}></Route>
-        <Route  exact path="/products/:search/:product" component={ProductDetail}></Route>
+        <Route  exact path="/products/:search/:product/:id" component={ProductDetail}></Route>
       </Switch>
     </div>
   )

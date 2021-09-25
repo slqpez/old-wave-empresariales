@@ -6,16 +6,19 @@ import Header from "./components/Header/Header";
 import Information from "./components/Information/Information";
 import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
+import ProductsProvider from "./context/productsContext";
 
 function App() {
   return (
     <div className={AppStyles.container}>
       <Router>
-        <Header />
-        <Body />
-        <Information />
-        <Newsletter />
-        <Footer />
+        <ProductsProvider>
+          <Header />
+          <Body />
+          <Information />
+          <Newsletter />
+          <Footer />
+        </ProductsProvider>
       </Router>
     </div>
   );
