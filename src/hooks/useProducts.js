@@ -8,6 +8,7 @@ function useProducts(productName) {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const[seller,setSeller] = useState("")
 
   useEffect(() => {
     setLoading(true);
@@ -19,6 +20,7 @@ function useProducts(productName) {
         payload: data.items,
       });
       setLoading(false);
+      setSeller(data.seller.id)
     })
     .catch((error) =>{
       console.log(error);
@@ -28,7 +30,7 @@ function useProducts(productName) {
     
   }, [productName]);
 
-  return { products, loading, error };
+  return { products, loading, error,seller };
 }
 
 export default useProducts;

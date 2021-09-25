@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import productDetailStyle from "./productDetail.module.css";
 import { Link, useParams } from "react-router-dom";
-import { getProductByID } from "../../services/products";
+import { getProductByIDFlask,getProductByIDFast } from "../../services/products";
 
 function ProductDetail() {
-  const { search, product, id } = useParams();
+  const { search, product, id,seller} = useParams();
   const [dataProduct, setDataProduct] = useState({});
 
+
+  console.log(seller)
   useEffect(() => {
     if (id) {
-      getProductByID(id).then((data) => setDataProduct(data));
+      if(seller ==  1){
+        getProductByIDFlask(id).then((data) => console.log(data));
+      }else if(seller ==  7){
+        getProductByIDFast(id).then((data) => setDataProduct(data));
+      }
+    
     }
   }, []);
 

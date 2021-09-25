@@ -14,7 +14,7 @@ function Body() {
         <Route exact path="/products/:search/">
           <Products></Products>
         </Route>
-        <Route exact path="/products/:search/:product/:id">
+        <Route exact path="/products/:search/:product/:seller/:id">
           <ProductDetail></ProductDetail>
         </Route>
       </Switch>
