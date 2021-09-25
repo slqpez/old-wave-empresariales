@@ -19,7 +19,7 @@ function ProductDetail() {
   return (
     <div className={productDetailStyle.detailContainer}>
       <Link to="/">Home</Link>
-      <span> &gt;</span> 
+      <span> &gt;</span>
       <Link to={"/products/" + search}>{search}</Link>
       <span> &gt;</span> 
       <Link to={"/products/" + search + "/" + product +"/" +id}>{product}</Link>
@@ -32,7 +32,7 @@ function ProductDetail() {
         <div className={productDetailStyle.imageContainer}>
           <img src={image} alt="Product image" />
         </div>
-        <div className={productDetailStyle.imageContainer}>
+        <div className={productDetailStyle.mainImage}>
           <img src={image} alt="Product image" />
         </div>
         <div className={productDetailStyle.imageContainer}>
@@ -56,17 +56,29 @@ function ProductDetail() {
               minimumFractionDigits: 0,
             }).format(dataProduct.price)}</p>
 
-        <div>
-          <h4>Vendedor</h4>
-          <p>Logo del vendedor</p>
+          <div>
+            <h4>Vendedor</h4>
+            <p>Logo del vendedor</p>
+          </div>
+          <button className={productDetailStyle.Detail_btn}>Agregar al carrito</button>
         </div>
       </div>
-
+      <hr className={productDetailStyle.DetailHr} />
       <div className={productDetailStyle.descriptionContainer}>
         <h3>Descripción del producto</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate in
+          quia ipsum labore. Ad magni obcaecati delectus illo repudiandae,
+          doloribus provident pariatur corrupti, eveniet atque sit ex temporibus
+          iusto! A. Exercitationem deleniti facere esse enim dolorum nihil illum
+          qui inventore doloremque eos illo dolore expedita animi debitis optio
+          minus rem, ipsam tenetur placeat ducimus quidem numquam ut! Provident,
+          nesciunt deleniti! Hic consequuntur sint quaerat excepturi rerum sequi
+          expedita, alias aliquam consectetur, et omnis. Voluptates culpa
+          nostrum sequi nulla tenetur, odio optio sit nemo dolor ipsam porro
+          ipsum dolore voluptatibus cumque.
+        </p>
       </div>
-      </div>
-     
     </div>
   );
 }
