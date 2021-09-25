@@ -6,14 +6,9 @@
 }
 
 
-.container {
-    display: flex;
-    margin-top: 2.5vw; 
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 5.21vh 0;
-    height: 123px;
-}
+/* .container {
+    padding: 0 3em;
+} */
 
 .imgs{
     display: flex;
@@ -22,10 +17,19 @@
     width: 120px;
 }
 
-.imgs img{
+.imgs img{    
+    padding: 18px;
     display: block;
-    height: 56px;
-    width: 72px;
+    height: 100px;
+    width: 100px;
+}
+
+.imgs img:hover{ 
+    box-shadow: 1px 1px 3px -.2px var(--main-color);
+    border-radius: 8px;
+    position: relative;
+    z-index: 999;
+    opacity: 1;
 }
 
 .container p{

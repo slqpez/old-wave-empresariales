@@ -6,19 +6,13 @@ import productsStyles from "./products.module.css";
 
 function Products() {
   
-  const {product}= useParams()
-  const [paths, SetPaths] = useState([product.split("-")[0]]);
-
-  useEffect(() => {
-   SetPaths([product.split("-")[0]])
-  }, [product])
+  const {search}= useParams()
 
   return (
     <div className={productsStyles.container}>
-      <Link to="/">Home &gt; </Link>
-      {paths.map((path, i) => (
-        <Link to="/" key={i}>{path}</Link> //TODO cambiar la ruta
-      ))}
+      <Link to="/">Home  </Link>
+      <span>&gt;</span>
+      <Link to={"/products/" + search}>{search}</Link>
       <div className={productsStyles.content}>
         <FilterAside />
         <ProductsList></ProductsList>

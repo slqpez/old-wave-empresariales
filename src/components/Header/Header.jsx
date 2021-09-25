@@ -40,7 +40,7 @@ function Header() {
         toastId: customId,
       });
     } else {
-      history.push(`/products/${inputValue}-from-0`);
+      history.push(`/products/${inputValue}`);
     }
   };
   return (
