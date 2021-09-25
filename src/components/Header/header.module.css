@@ -1,16 +1,15 @@
 .header {
   display: flex;
   flex-direction: column;
-  height:132px;
+  height: 132px;
   padding-top: 11px;
 }
 
-
-.brandSection{
-display: flex;
-justify-content: space-between;
-margin: 0 71px 0 71.9px;
-height:66px;
+.brandSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 71px 0 71.9px;
+  height: 66px;
 }
 
 .loginSection {
@@ -43,7 +42,32 @@ height:66px;
   cursor: pointer;
 }
 
-.searchSection{
+.searchSection {
   background-color: var(--main-color);
-  height:66px;
+  height: 66px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    display: none;
+  }
+
+  .nav{
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    width: 90vw;
+    padding:2em;
+    height: calc(100vh + 20px);
+    top: -20px;
+  }
+
+  .nav button{
+    margin-top: 2em;
+    background-color: var(--main-color);
+    width: 50px;
+    color:white;
+    height: 50px;
+    border: none;
+  }
 }

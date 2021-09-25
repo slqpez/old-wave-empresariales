@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import headerStyles from "./header.module.css";
 import {useHistory} from "react-router-dom"
 import Carlist from "../CartList/Carlist";
+import BurguerMenu from "../BurguerMenu/BurguerMenu"
 
 const customId = "custom-id-yes";
 
@@ -17,13 +18,20 @@ function Header() {
 
   const [inputValue, setInputValue] = useState("")
   const [showCart, setShowCart] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
 
+  const handleShowMenu=()=>{
+    setShowMenu(!showMenu)
+    console.log(showMenu)
+  }
+
   const handleShowCart=()=>{
     setShowCart(!showCart);
+    console.log(showMenu)
   }
 
   const handleSubmit = (e) => {
@@ -45,8 +53,19 @@ function Header() {
   };
   return (
     <header className={headerStyles.header}>
+     {showMenu?
+     <nav className={headerStyles.nav}>
+     <ul>
+       <li>Iniciar sesión</li>
+       <li>Acerca de nostros</li>
+       <li>Contáctanos</li>
+       <button onClick={handleShowMenu}>X</button>
+     </ul>
+   </nav>:null} 
+   <BurguerMenu handleShowMenu={handleShowMenu}/>
       <section className={headerStyles.brandSection}>
-        <div>
+      
+        <div>  
           <img src={logo} alt="Old wave logo" />
         </div>
         <nav className={headerStyles.loginSection}>
