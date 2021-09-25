@@ -30,17 +30,17 @@
     .information {
       width: 100%;
       display: block;
-      padding: 0;
+      padding: 0 3em;
       height: auto;
       min-height: 129px;
     }
   
     .responsive_section {
+      width: 100%;
       display: flex;
       justify-content: center;
       padding: 15px 0;
-      margin: auto;
-  
+      gap: 1em;  
   
     }
   
@@ -48,6 +48,7 @@
       display: flex;
       align-items: center;
       width: 250px;
+      justify-content: center;
   
     }
   
