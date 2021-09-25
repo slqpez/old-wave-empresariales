@@ -26,12 +26,10 @@ function Header() {
 
   const handleShowMenu=()=>{
     setShowMenu(!showMenu)
-    console.log(showMenu)
   }
 
   const handleShowCart=()=>{
     setShowCart(!showCart);
-    console.log(showMenu)
   }
 
   const handleSubmit = (e) => {

@@ -1,28 +1,34 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import image from "../../assets/desktop/producto1@2x.png";
 import productDetailStyle from "./productDetail.module.css";
 import {Link, useParams} from "react-router-dom"
+import {getProductByID} from "../../services/products"
 
 function ProductDetail() {
 
-    const {search, product}= useParams()
+    const {search, product, id}= useParams()
+    const [dataProduct,setDataProduct] = useState()
 
-    console.log(search, product)
-  
+   useEffect(() => {
+    getProductByID(id)
+    .then(data=> setDataProduct(data))
+   },[])
+
+  console.log(dataProduct)
   return (
     <div className={productDetailStyle.detailContainer}>
       <Link to="/">Home</Link>
       <span> &gt;</span> 
       <Link to={"/products/" + search}>{search}</Link>
       <span> &gt;</span> 
-      <Link to={"/products/" + search + "/" + product}>{product}</Link>
+      <Link to={"/products/" + search + "/" + product +"/" +id}>{product}</Link>
 
       <div className={productDetailStyle.detailContent}>
       <div className={productDetailStyle.imagesContainer}>
-        <div className={productDetailStyle.imageContainer}>
+        {/* <div className={productDetailStyle.imageContainer}>
           <img src={image} alt="Product image" />
-        </div>
+        </div> */}
         <div className={productDetailStyle.imageContainer}>
           <img src={image} alt="Product image" />
         </div>
@@ -40,11 +46,15 @@ function ProductDetail() {
         <img src={image} alt="Product image" />
       </div>
       <div className={productDetailStyle.infoProductContainer}>
-        <h3>El nombre del producto</h3>
+        <h3>{dataProduct.name}</h3>
 
-        <p>Iphone</p>
-        <p>Medellín</p>
-        <p>$100.000</p>
+        <p>{dataProduct.brand}</p>
+        <p>{dataProduct.city.name}</p>
+        <p> {Intl.NumberFormat("es-CO", {
+              style: "currency",
+              currency: "COP",
+              minimumFractionDigits: 0,
+            }).format(dataProduct.price)}</p>
 
         <div>
           <h4>Vendedor</h4>
