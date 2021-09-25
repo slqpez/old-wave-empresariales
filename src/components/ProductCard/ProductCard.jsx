@@ -1,11 +1,46 @@
-import React from "react";
+import React,{useEffect,useContext,useState} from "react";
 import productsCardStyles from "./productCard.module.css";
 import cartProductStyles from "./cartProduct.module.css";
+import { ProductsContext } from "../../context/productsContext";
 import {Link} from "react-router-dom"
 
-function ProductsCard({cart, price, name, id, image, brand, search}) {
+function ProductsCard({cart, price, name, id, image, brand, search,handleDeleteProduct}) {
+
+
+  const [{ cartProducts }, dispatch] = useContext(ProductsContext);
+
+  const [quantity, setQuantity] = useState(1);
+
+
+  const handleAddToCart = async () => {
+    const product = { name, image, price, id,brand};
+    if (cartProducts.length === 0) {
+      dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+      window.localStorage.setItem(
+        "cart-products",
+        JSON.stringify([...cartProducts,product])
+      );
+    } else {
+      const newCart = cartProducts.filter((p) => p.id !== id);
+      const exists = cartProducts.find((p) => p.id === id);
+
+      if (exists) {
+        setQuantity((q) => q + 1);
+      } else {
+        const product = { title, image, price, id,brand };
+        dispatch({ type: "ADD_PRODUCT_TO_CART", payload:product });
+        window.localStorage.setItem(
+          "cart-products",
+          JSON.stringify([...newCart, product])
+        );
+      }
+    }
+  };
+
+
 
   const styles = cart? cartProductStyles: productsCardStyles;
+  
   return (
     <Link to={"/products/" +search + "/" + name + "/" +id} className={styles.ProductCard}>
       <img src={image} alt=""/>
@@ -25,7 +60,7 @@ function ProductsCard({cart, price, name, id, image, brand, search}) {
             }).format(price)}</p>
         </div>
 
-        {cart?<button className={styles.ProductCard_btn}>Borrar</button>:<button className={styles.ProductCard_btn}>Agregar al carrito</button>}
+        {cart?<button className={styles.ProductCard_btn}  onClick={handleDeleteProduct} data-id={id}>Borrar</button>:<button className={styles.ProductCard_btn} onClick={handleAddToCart}>Agregar al carrito</button>}
         
       </div>
     </Link>

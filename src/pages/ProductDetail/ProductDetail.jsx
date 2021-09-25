@@ -15,9 +15,8 @@ function ProductDetail() {
     }
   }, []);
 
-  console.log(dataProduct);
   return (
-    <div>
+    <div className={productDetailStyle.detailContent}>
       <Link to="/">Home</Link>
       <span> &gt;</span>
       <Link to={"/products/" + search}>{search}</Link>
@@ -57,7 +56,7 @@ function ProductDetail() {
 
           <div>
             <h4>Vendedor</h4>
-            <p>Logo del vendedor</p>
+            <p>{dataProduct.seller.name}</p>
           </div>
           <button className={productDetailStyle.Detail_btn}>
             Agregar al carrito
@@ -67,8 +66,7 @@ function ProductDetail() {
       <div className={productDetailStyle.descriptionContainer}>
         <h3>Descripción del producto</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate in
-          quia ipsum labore. Ad magni obcaecati delectus illo repudiandae,
+          {dataProduct.description}
         </p>
       </div>
         </div>

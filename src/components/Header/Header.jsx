@@ -1,14 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import logo from "../../assets/logos/logo-oldwave-header.svg";
 import loginIcon from "../../assets/icons/login-icon.svg";
 import cartIcon from "../../assets/icons/carrito-icon.svg";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ProductsContext } from "../../context/productsContext";
 import headerStyles from "./header.module.css";
 import {useHistory} from "react-router-dom"
 import Carlist from "../CartList/Carlist";
 import BurguerMenu from "../BurguerMenu/BurguerMenu"
+import useCartProducts from "../../hooks/useCartProducts"
 
 const customId = "custom-id-yes";
 
@@ -20,6 +22,12 @@ function Header() {
   const [showCart, setShowCart] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
+
+  const [state, dispatch] = useContext(ProductsContext);
+  const [cartDeleted, setCartDeleted] = useState(false)
+
+  const { cartProducts } = useCartProducts(cartDeleted);
+
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
@@ -30,6 +38,24 @@ function Header() {
 
   const handleShowCart=()=>{
     setShowCart(!showCart);
+  }
+
+
+  const handleDeleteProduct=(e)=>{
+    e.preventDefault()
+    const id  = e.target.getAttribute("data-id")
+    dispatch({ type: "DELETE_PRODUCT_FROM_CART", payload: id });
+    const products = JSON.parse(window.localStorage.getItem("cart-products"))
+    const newProducts = products.filter(product => product.id !== id)
+   window.localStorage.setItem("cart-products", JSON.stringify(newProducts))
+    setCartDeleted(!cartDeleted)
+  }
+
+
+  const handleEmptyCart=()=>{
+    dispatch({type:"DELETE_ALL_PRODUCTS_FROM_CART"})
+    window.localStorage.clear()
+    setCartDeleted(!cartDeleted)
   }
 
   const handleSubmit = (e) => {
@@ -78,7 +104,7 @@ function Header() {
               alt="Shopping cart"
               onClick={handleShowCart}
             />
-            {showCart?<Carlist></Carlist>:null}
+            {showCart?<Carlist cartProducts={cartProducts} handleEmptyCart={handleEmptyCart} handleDeleteProduct={handleDeleteProduct}></Carlist>:null}
           </div>
         </nav>
       </section>

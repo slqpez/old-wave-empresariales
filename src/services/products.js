@@ -10,3 +10,12 @@ export async function getProductByID(id){
   const data = await res.json();
   return data
 }
+
+
+export async function getProductsFlask(name){
+  const res =  await fetch(`https://proyectoflaskoldwave.herokuapp.com/api/search?q=${name}`);
+  const data = await res.json();
+  return data
+}
+
+
