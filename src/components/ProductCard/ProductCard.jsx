@@ -16,6 +16,7 @@ function ProductsCard({
   brand,
   search,
   handleDeleteProduct,
+  seller
 }) {
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
