@@ -5,7 +5,7 @@ function SearchForm({handleSubmit, handleInput}) {
   return (
     <form onSubmit={handleSubmit} className={searchFormStyles.form}>
       <div className={searchFormStyles.inputSection}>
-        <input type="text" className={searchFormStyles.inputSearch} placeholder="Estoy buscando..."  onChange={handleInput}/>
+        <input  data-cy="input-search" type="text" className={searchFormStyles.inputSearch} placeholder="Estoy buscando..."  onChange={handleInput}/>
         <button type="button" className={searchFormStyles.btnCategories}>
           Todas las categorías
         </button>

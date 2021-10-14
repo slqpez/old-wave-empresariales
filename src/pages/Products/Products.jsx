@@ -10,9 +10,9 @@ function Products() {
   const { search } = useParams();
 
 
-  let { products, loading, error,seller} = useProducts(search);
+  let { products, loading, error} = useProducts(search);
 
-
+console.log(products.items)
 
   return (
     <div className={productsStyles.container}>
@@ -21,7 +21,7 @@ function Products() {
       <Link to={"/products/" + search}>{search}</Link>
       <div className={productsStyles.content}>
         <FilterAside />
-        <ProductsList products={products}search={search} seller={seller}></ProductsList>
+        <ProductsList products={products}search={search}></ProductsList>
       </div>
     </div>
   );

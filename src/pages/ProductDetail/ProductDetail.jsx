@@ -13,6 +13,7 @@ function ProductDetail() {
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
   useEffect(() => {
+   
     getProductByIDFast(id).then((data) => setDataProduct(data));
   }, []);
 

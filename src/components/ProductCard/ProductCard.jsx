@@ -22,7 +22,6 @@ function ProductsCard({
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
 
-  const [quantity, setQuantity] = useState(1);
 
 
 
@@ -56,7 +55,7 @@ function ProductsCard({
       const exists = cartProducts.find((p) => p.id === id);
 
       if (exists) {
-        setQuantity((q) => q + 1);
+        setHowMuch((q) => q + 1);
       } else {
         const product = { name, image, price, id, brand };
         dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
