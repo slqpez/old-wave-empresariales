@@ -9,7 +9,7 @@ function ProductsList({products, search,seller}) {
 
   return (
     <div className={productsListStyles.productsList}>
-     {products?.map(product=><ProductCard key={product.id} name={product.name} brand={product.brand} price={product.price} image={product.thumbnail} search={search} id={product.id} seller={seller}></ProductCard> )}
+     {products?.map(product=><ProductCard key={product.name} name={product.name} brand={product.brand} price={product.price} image={product.thumbnail} search={search} id={product.id} seller={seller}></ProductCard> )}
     </div>
   );
 }

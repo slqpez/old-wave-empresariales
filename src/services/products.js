@@ -13,14 +13,17 @@ export async function getProductByIDFast(id){
 
 
 export async function getProductsFlask(product){
-  const res =  await fetch(`https://54.183.179.149:8080/api/search?q=${product}`);
+  const res =  await fetch(`http://54.183.179.149:8080/api/search?q=${product}`);
   const data = await res.json();
   return data
 }
 
 
 export async function getProductByIDFlask(id){
-  const res =  await fetch(`https://54.183.179.149:8080/api/item/${id}`);
+  const res =  await fetch(`http://54.183.179.149:8080/api/item/${id}`);
   const data = await res.json();
   return data
 }
+
+
+//https://oldwave-graphql.herokuapp.com/ 

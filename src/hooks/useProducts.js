@@ -1,36 +1,35 @@
 import { useState, useEffect, useContext } from "react";
 import { ProductsContext } from "../context/productsContext";
-import {getProductsByName} from "../services/products";
+import { getProductsByName, getProductsFlask } from "../services/products";
 
 function useProducts(productName) {
-
   const [{ products }, dispatch] = useContext(ProductsContext);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const[seller,setSeller] = useState("")
+  const [seller, setSeller] = useState("");
 
-  useEffect(() => {
+  const fetchProducts = async (productName) => {
     setLoading(true);
     setError(null);
-    getProductsByName(productName)
-    .then((data) =>{
-      dispatch({
-        type: "FETCH_PRODUCTS",
-        payload: data.items,
-      });
-      setLoading(false);
-      setSeller(data.seller.id)
-    })
-    .catch((error) =>{
-      console.log(error);
-      setError("No se pudo hacer la petición.")
-    })
-     
-    
+    const [fastRes, flaskRes] = await Promise.all([
+      getProductsByName(productName),
+      getProductsFlask(productName),
+    ]);
+
+    setLoading(false);
+    setSeller(fastRes.seller.id);
+
+    let joinRes = [...fastRes.items, ...flaskRes.items];
+
+    dispatch({ type:"FETCH_PRODUCTS", payload:joinRes})
+  };
+
+  useEffect(() => {
+    fetchProducts(productName);
   }, [productName]);
 
-  return { products, loading, error,seller };
+  return { products, loading, error, seller };
 }
 
 export default useProducts;
