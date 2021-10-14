@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import productDetailStyle from "./productDetail.module.css";
+import {ProductsContext} from "../../context/productsContext"
 import { Link, useParams } from "react-router-dom";
 import {
   getProductByIDFlask,
@@ -9,12 +10,45 @@ import {
 function ProductDetail() {
   const { search, product, id, seller } = useParams();
   const [dataProduct, setDataProduct] = useState({});
+  const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
-  console.log(dataProduct);
   useEffect(() => {
     getProductByIDFast(id).then((data) => setDataProduct(data));
   }, []);
 
+
+
+ 
+  const handleAddToCart = async (e) => {
+    e.preventDefault()
+
+    const image = dataProduct.pictures[0]
+    console.log(image)
+    const {name, price , id, brand} = dataProduct
+    const product = { name, image, price, id, brand };
+    console.log(product)
+    if (cartProducts.length === 0) {
+      dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+      window.localStorage.setItem(
+        "cart-products",
+        JSON.stringify([...cartProducts, product])
+      );
+    } else {
+      const newCart = cartProducts.filter((p) => p.id !== id);
+      const exists = cartProducts.find((p) => p.id === id);
+
+      if (exists) {
+       /*  setQuantity((q) => q + 1); */
+      } else {
+        const product = { name, image, price, id, brand };
+        dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
+        window.localStorage.setItem(
+          "cart-products",
+          JSON.stringify([...cartProducts, product])
+        );
+      }
+    }
+  }; 
 
 
   if(Object.keys(dataProduct).length === 0) return <p>Cargando...</p>
@@ -64,7 +98,7 @@ function ProductDetail() {
               <h4>Vendedor</h4>
               <p>{dataProduct?.seller.name}</p>
             </div>
-            <button className={productDetailStyle.Detail_btn}>
+            <button className={productDetailStyle.Detail_btn} onClick={handleAddToCart}>
               Agregar al carrito
             </button>
           </div>

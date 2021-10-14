@@ -29,7 +29,7 @@ function Carlist({ cartProducts, handleDeleteProduct, handleEmptyCart }) {
         })
       ) : (
         <p className={cartListStyles.notProducts}>
-          Aún no tienes productos agregados
+          Aún no tienes productos agregados... 😓
         </p>
       )}
 

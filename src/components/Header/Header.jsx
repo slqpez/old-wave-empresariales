@@ -42,13 +42,15 @@ function Header() {
 
 
   const handleDeleteProduct=(e)=>{
-    e.preventDefault()
-    const id  = e.target.getAttribute("data-id")
+     e.preventDefault()
+    const id  = Number(e.target.getAttribute("data-id"))
+    console.log(id)
     dispatch({ type: "DELETE_PRODUCT_FROM_CART", payload: id });
     const products = JSON.parse(window.localStorage.getItem("cart-products"))
     const newProducts = products.filter(product => product.id !== id)
    window.localStorage.setItem("cart-products", JSON.stringify(newProducts))
-    setCartDeleted(!cartDeleted)
+    setCartDeleted(!cartDeleted) 
+   
   }
 
 
@@ -75,6 +77,8 @@ function Header() {
       history.push(`/products/${inputValue}`);
     }
   };
+
+  console.log(cartProducts)
   return (
     <header className={headerStyles.header}>
      {showMenu?
