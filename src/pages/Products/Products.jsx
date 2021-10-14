@@ -11,16 +11,16 @@ function Products() {
 
   const [flaskProducts,setFlaskProducts]= useState([])
 
-  const { products, loading, error } = useProducts(search);
+  const { products, loading, error,seller} = useProducts(search);
 
-
- /*  useEffect(()=>{
+  useEffect(()=>{
     getProductsFlask(search)
     .then(data=>console.log(data))
-  },[]) */
+    .catch(error=>console.log(error))
+  },[])
+ 
 
-//  const arrayProducts = products.concat(flaskProducts)
-
+  console.log(products)
   return (
     <div className={productsStyles.container}>
       <Link to="/">Home </Link>
@@ -28,7 +28,7 @@ function Products() {
       <Link to={"/products/" + search}>{search}</Link>
       <div className={productsStyles.content}>
         <FilterAside />
-        <ProductsList products={products}search={search}></ProductsList>
+        <ProductsList products={products}search={search} seller={seller}></ProductsList>
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 
+
 import React, { useEffect, useContext, useState } from "react";
 import productsCardStyles from "./productCard.module.css";
 import cartProductStyles from "./cartProduct.module.css";
 import { ProductsContext } from "../../context/productsContext";
 import { Link } from "react-router-dom";
+
 
 function ProductsCard({
   cart,
@@ -55,7 +57,7 @@ function ProductsCard({
         dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
         window.localStorage.setItem(
           "cart-products",
-          JSON.stringify([...newCart, product])
+          JSON.stringify([...cartProducts, product])
         );
       }
     }
@@ -64,11 +66,9 @@ function ProductsCard({
   const styles = cart ? cartProductStyles : productsCardStyles;
 
   return (
-    <Link
-      to={"/products/" + search + "/" + name + "/" + id}
-      className={styles.ProductCard}
-    >
-      <img src={image} alt="" />
+
+    <Link to={"/products/" +search + "/" + name +  "/" +seller +"/" +id} className={styles.ProductCard}>
+      <img src={image} alt=""/>
       <div className={styles.ProductCardInformation}>
         <p className={styles.ProductCardInformation_title}>{name}</p>
         <h4 className={styles.ProductCardInformation_seller}>{brand}</h4>
