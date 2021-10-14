@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React,{useContext,useState} from "react";
 import productsCardStyles from "./productCard.module.css";
 import cartProductStyles from "./cartProduct.module.css";
@@ -7,25 +6,7 @@ import {Link} from "react-router-dom"
 
 function ProductsCard({cart, price, name, id, image, brand, search,handleDeleteProduct,seller}) {
 
-=======
-
-import React, { useEffect, useContext, useState } from "react";
-import productsCardStyles from "./productCard.module.css";
-import cartProductStyles from "./cartProduct.module.css";
-import { ProductsContext } from "../../context/productsContext";
-import { Link } from "react-router-dom";
->>>>>>> 2b76d507823fb0f0a77831af7a86a0756f8b372e
-
-function ProductsCard({
-  cart,
-  price,
-  name,
-  id,
-  image,
-  brand,
-  search,
-  handleDeleteProduct,
-}) {
+ 
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
 
@@ -47,7 +28,7 @@ function ProductsCard({
   }
 
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = async (e) => {
     const product = { name, image, price, id, brand };
     if (cartProducts.length === 0) {
       dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
@@ -75,16 +56,8 @@ function ProductsCard({
   const styles = cart ? cartProductStyles : productsCardStyles;
 
   return (
-<<<<<<< HEAD
     <Link to={"/products/" +search + "/" + name +  "/" +seller +"/" +id} className={styles.ProductCard}>
       <img src={image} alt=""/>
-=======
-    <Link
-      to={"/products/" + search + "/" + name + "/" + id}
-      className={styles.ProductCard}
-    >
-      <img src={image} alt="" />
->>>>>>> 2b76d507823fb0f0a77831af7a86a0756f8b372e
       <div className={styles.ProductCardInformation}>
         <p className={styles.ProductCardInformation_title}>{name}</p>
         <h4 className={styles.ProductCardInformation_seller}>{brand}</h4>

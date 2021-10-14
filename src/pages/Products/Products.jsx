@@ -13,11 +13,11 @@ function Products() {
 
   const { products, loading, error,seller} = useProducts(search);
 
-  useEffect(()=>{
+ /*  useEffect(()=>{
     getProductsFlask(search)
     .then(data=>console.log(data))
     .catch(error=>console.log(error))
-  },[])
+  },[]) */
  
 
   console.log(products)
