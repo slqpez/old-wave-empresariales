@@ -1,12 +1,22 @@
-import React,{useContext,useState} from "react";
+
+
+import React, { useEffect, useContext, useState } from "react";
 import productsCardStyles from "./productCard.module.css";
 import cartProductStyles from "./cartProduct.module.css";
 import { ProductsContext } from "../../context/productsContext";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
-function ProductsCard({cart, price, name, id, image, brand, search,handleDeleteProduct,seller}) {
 
- 
+function ProductsCard({
+  cart,
+  price,
+  name,
+  id,
+  image,
+  brand,
+  search,
+  handleDeleteProduct,
+}) {
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
 
