@@ -16,7 +16,9 @@ function ProductsCard({
   brand,
   search,
   handleDeleteProduct,
+  seller
 }) {
+
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
 
@@ -26,11 +28,13 @@ function ProductsCard({
 
   const [howMuch, setHowMuch] = useState(1);
 
-  const handleAdd = () =>{
+  const handleAdd = (e) =>{
+    e.preventDefault();
     setHowMuch(howMuch+1);
   }
 
-  const handleSubs = () => {
+  const handleSubs = (e) => {
+    e.preventDefault()
     if(howMuch == 1){
       return
     }
@@ -38,7 +42,8 @@ function ProductsCard({
   }
 
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = async (e) => {
+    e.preventDefault()
     const product = { name, image, price, id, brand };
     if (cartProducts.length === 0) {
       dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
@@ -53,7 +58,7 @@ function ProductsCard({
       if (exists) {
         setQuantity((q) => q + 1);
       } else {
-        const product = { title, image, price, id, brand };
+        const product = { name, image, price, id, brand };
         dispatch({ type: "ADD_PRODUCT_TO_CART", payload: product });
         window.localStorage.setItem(
           "cart-products",
@@ -66,9 +71,9 @@ function ProductsCard({
   const styles = cart ? cartProductStyles : productsCardStyles;
 
   return (
-
-    <Link to={"/products/" +search + "/" + name +  "/" +seller +"/" +id} className={styles.ProductCard}>
-      <img src={image} alt=""/>
+    <div className={styles.containerCart}>
+       <Link to={"/products/" +search + "/" + name +  "/" + seller +"/" +id} className={styles.ProductCard}>
+      <img src={image} alt="Product Image"/>
       <div className={styles.ProductCardInformation}>
         <p className={styles.ProductCardInformation_title}>{name}</p>
         <h4 className={styles.ProductCardInformation_seller}>{brand}</h4>
@@ -105,9 +110,10 @@ function ProductsCard({
           <button onClick={handleSubs}>-</button>
         </div>
       ) : null}
-
-      
     </Link>
+    {cart? <button className={styles.btnDelete} onClick={handleDeleteProduct} data-id={id}>Borrar</button>:null}
+    </div>
+   
   );
 }
 

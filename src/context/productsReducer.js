@@ -17,7 +17,7 @@ const productsReducer = (state, action) => {
     case types.fetchProducts:
       return {
         ...state,
-        products: action.payload,
+        products:  action.payload
       };
 
     case types.addProductToCart:

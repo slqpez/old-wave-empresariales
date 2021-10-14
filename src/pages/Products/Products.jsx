@@ -9,18 +9,11 @@ import {getProductsFlask} from "../../services/products"
 function Products() {
   const { search } = useParams();
 
-  const [flaskProducts,setFlaskProducts]= useState([])
 
-  const { products, loading, error,seller} = useProducts(search);
+  let { products, loading, error,seller} = useProducts(search);
 
-  useEffect(()=>{
-    getProductsFlask(search)
-    .then(data=>console.log(data))
-    .catch(error=>console.log(error))
-  },[])
- 
 
-  console.log(products)
+
   return (
     <div className={productsStyles.container}>
       <Link to="/">Home </Link>
