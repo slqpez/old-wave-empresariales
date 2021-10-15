@@ -5,9 +5,9 @@ import cartListStyles from "./cartList.module.css";
 function Carlist({ cartProducts, handleDeleteProduct, handleEmptyCart }) {
   let totalPrice = 0;
   return (
-    <div className={cartListStyles.carlist}>
+    <div className={cartListStyles.carlist} data-cy="cart-list">
       {cartProducts.length > 0 ? (
-        <button className={cartListStyles.emptyCart} onClick={handleEmptyCart}>
+        <button className={cartListStyles.emptyCart} onClick={handleEmptyCart} data-cy="btn-empty-cart">
           Vaciar carrito
         </button>
       ) : null}

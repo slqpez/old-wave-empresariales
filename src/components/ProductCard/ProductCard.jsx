@@ -21,10 +21,6 @@ function ProductsCard({
 
   const [{ cartProducts }, dispatch] = useContext(ProductsContext);
 
-
-
-
-
   const [howMuch, setHowMuch] = useState(1);
 
   const handleAdd = (e) =>{
@@ -70,9 +66,9 @@ function ProductsCard({
   const styles = cart ? cartProductStyles : productsCardStyles;
 
   return (
-    <div className={styles.containerCart}>
-       <Link to={"/products/" +search + "/" + name +  "/" + seller +"/" +id} className={styles.ProductCard}>
-      <img src={image} alt="Product Image"/>
+    <div className={styles.containerCart} >
+       <Link to={"/products/" +search + "/" + name +  "/" + seller +"/" +id} className={styles.ProductCard} data-cy="card-product">
+      <img src={image} alt="Product Image" data-cy="img-card"/>
       <div className={styles.ProductCardInformation}>
         <p className={styles.ProductCardInformation_title}>{name}</p>
         <h4 className={styles.ProductCardInformation_seller}>{brand}</h4>
@@ -97,7 +93,7 @@ function ProductsCard({
         {cart ? (
           null
         ) : (
-          <button className={styles.ProductCard_btn} onClick={handleAddToCart}>
+          <button className={styles.ProductCard_btn} onClick={handleAddToCart} data-cy="btn-add-product">
             Agregar al carrito
           </button>
         )}
@@ -110,7 +106,7 @@ function ProductsCard({
         </div>
       ) : null}
     </Link>
-    {cart? <button className={styles.btnDelete} onClick={handleDeleteProduct} data-id={id}>Borrar</button>:null}
+    {cart? <button className={styles.btnDelete} onClick={handleDeleteProduct} data-id={id} data-cy="btn-delete-cart">Borrar</button>:null}
     </div>
    
   );

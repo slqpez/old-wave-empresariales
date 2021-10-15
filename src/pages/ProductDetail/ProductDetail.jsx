@@ -68,16 +68,16 @@ function ProductDetail() {
         
 
        <div>
-          <div className={productDetailStyle.imagesContainer}>
-            {dataProduct?.pictures.map((picture, i) => {
+          <div className={productDetailStyle.imagesContainer} data-cy="container-products">
+            {dataProduct ?.pictures.map((picture, i) => {
               return (
                 <div key={i} className={productDetailStyle.imageContainer}>
                   <img src={picture} alt="Product image" />
                 </div>
               );
-            })}
+            }) }
             <div className={productDetailStyle.mainImage}>
-              <img src={dataProduct?.pictures[0]} alt="Product image" />
+              <img src={dataProduct?.pictures[0]} alt="Product image" data-cy="img-detail"/>
             </div>
           </div>
 
@@ -99,7 +99,7 @@ function ProductDetail() {
               <h4>Vendedor</h4>
               <p>{dataProduct?.seller.name}</p>
             </div>
-            <button className={productDetailStyle.Detail_btn} onClick={handleAddToCart}>
+            <button className={productDetailStyle.Detail_btn} onClick={handleAddToCart} data-cy="btn-detail-add">
               Agregar al carrito
             </button>
           </div>

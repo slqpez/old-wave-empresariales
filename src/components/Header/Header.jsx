@@ -107,6 +107,7 @@ function Header() {
               className={headerStyles.icon}
               alt="Shopping cart"
               onClick={handleShowCart}
+              data-cy='cart-icon'
             />
             {showCart?<Carlist cartProducts={cartProducts} handleEmptyCart={handleEmptyCart} handleDeleteProduct={handleDeleteProduct}></Carlist>:null}
           </div>
