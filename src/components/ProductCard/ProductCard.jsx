@@ -60,6 +60,7 @@ function ProductsCard({
           JSON.stringify([...cartProducts, product])
         );
       }
+    
     }
   };
 

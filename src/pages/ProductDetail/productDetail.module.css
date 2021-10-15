@@ -1,25 +1,43 @@
 .detailContent {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
   margin: 1em;
   background-color: rgb(255, 255, 255);
-
+  padding: 2em;
+  padding-top: 0;
 
 }
 
+.containerAll{
+  display: flex;
+  margin: 20px auto;
+ 
+  
+}
+
+.infoMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoMain h3{
+  font-size: 3.5em;
+}
+
+.infoPrice{
+  font-size: 3em;
+}
 .imagesContainer {
   display: flex;
   width: 300px;
   gap: 1em;
-  margin-right: 5vw;
-  margin-top: 100px;
+  margin-right: 5px;
+  margin-top: 50px;
 }
 
 .imageContainer {
   border: 1px solid grey;
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 150px;
 }
 
 .imageContainer img {
@@ -28,19 +46,22 @@
 }
 
 .mainImage{
-  width: 40%;
+  width: 500px;
+  height: 400px;
   justify-content: center;
   margin: auto;
 }
 
-.DetailHr{
-  margin: 0 2em;
+.mainImage img{
+  width: 100%;
+  height: 100%;
 }
 
 .infoProductContainer{
   border-radius: 5px;
   border: 1px solid rgba(0,0,0,.1);
   padding: 3.4em;
+  width: 500px;
 }
 
 .infoProductName{
@@ -88,6 +109,10 @@
   border:none;
   cursor: pointer;
   margin-top: 2em;
+}
+
+.Detail_btn:hover{
+  background-color: rgb(78, 16, 160);
 }
 
 @media screen and (max-width:768px) {
