@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "cypress:open": "cypress open",
     "test": "cypress run",
-    "test1": "jest -env=jsdom"
+    "test-jest": "jest -env=jsdom"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
