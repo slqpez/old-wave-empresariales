@@ -12,17 +12,17 @@ function useProducts(productName) {
   const fetchProducts = async (productName) => {
     setLoading(true);
     setError(null);
-    const [fastRes, flaskRes] = await Promise.all([
+    const [fastRes/* , flaskRes */] = await Promise.all([
       getProductsByName(productName),
-      getProductsFlask(productName),
+      /* getProductsFlask(productName), */
     ]);
 
     setLoading(false);
     setSeller(fastRes.seller.id);
 
-    let joinRes = [...fastRes.items, ...flaskRes.items];
+    /* let joinRes = [...fastRes.items, ...flaskRes.items]; */
 
-    dispatch({ type:"FETCH_PRODUCTS", payload:joinRes})
+    dispatch({ type:"FETCH_PRODUCTS", payload:fastRes.items})
   };
 
   useEffect(() => {
