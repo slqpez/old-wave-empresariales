@@ -27,10 +27,11 @@ jobs:
             sudo apt install python3-pip
             sudo pip3 install awsebcli --upgrade
       - run: npm install && npm run build
-      - run: aws s3 sync ./dist s3://old-wave-react
       - run: 
           name: Run E2E tests
           command: npm run test
+      - run: aws s3 sync ./dist s3://old-wave-react
+      
       
 workflows:
   version: 2
