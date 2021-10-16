@@ -97,7 +97,7 @@ function Header() {
           <img src={logo} alt="Old wave logo" />
         </div>
         <nav className={headerStyles.loginSection}>
-          <button className={headerStyles.btn}>
+          <button className={headerStyles.btn} data-cy="btn-login">
             Regístrate o inicia sesión
           </button>
           <div className={headerStyles.icons}>
@@ -107,6 +107,7 @@ function Header() {
               className={headerStyles.icon}
               alt="Shopping cart"
               onClick={handleShowCart}
+              data-cy='cart-icon'
             />
             {showCart?<Carlist cartProducts={cartProducts} handleEmptyCart={handleEmptyCart} handleDeleteProduct={handleDeleteProduct}></Carlist>:null}
           </div>

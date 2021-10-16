@@ -8,7 +8,7 @@ function ProductsList({products, search,seller}) {
   if(!products) return <p>No se encontraron productos</p>
 
   return (
-    <div className={productsListStyles.productsList}>
+    <div className={productsListStyles.productsList} >
      {products?.map(product=><ProductCard key={product.name} name={product.name} brand={product.brand} price={product.price} image={product.thumbnail} search={search} id={product.id} seller={seller}></ProductCard> )}
     </div>
   );

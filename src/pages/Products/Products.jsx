@@ -10,9 +10,9 @@ function Products() {
   const { search } = useParams();
 
 
-  let { products, loading, error,seller} = useProducts(search);
+  let { products, loading, error, seller } = useProducts(search);
 
-
+console.log(products.items)
 
   return (
     <div className={productsStyles.container}>
